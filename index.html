@@ -11,11 +11,14 @@
     
     <!-- Header Section -->
     <header>
-        <h1>Maxmilian Halim</h1>
-        <p>Aspiring Computer Scientist | Passionate About AI and Cybersecurity</p>
-        <img src="maxpfp.jpg" alt="Profile Picture of Maxmilian Halim" class="profile-img">
+        <div class="header-content">
+            <img src="maxpfp.jpg" alt="Profile Picture of Maxmilian Halim" class="profile-img">
+            <div class="header-text">
+                <h1>Maxmilian Halim</h1>
+                <p>Aspiring Computer Scientist | Passionate About AI and Cybersecurity</p>
+            </div>
+        </div>
     </header>
-
     <!-- Navigation -->
     <nav>
         <ul>
@@ -59,66 +62,108 @@
         <!-- Experience Section -->
         <section id="experience">
             <h2>Experience</h2>
+            
             <div class="card">
-                <h3>Klinair – Co-Founder, President</h3>
+                <h3>Klinair – Co-Founder, President [2022-present]</h3>
                 <p>Founded a non-profit distributing air filtration devices to under-resourced schools in Jakarta, enhancing air quality for over 2,000 students and saving schools over $35,000 on air filtration devices.</p>
             </div>
+            
             <div class="card">
-                <h3>Vice President – Youth Action Hub Indonesia</h3>
+                <h3>Vice President – Youth Action Hub Indonesia [2022-present]</h3>
                 <p>Led youth engagement in sustainable solutions, registered under the United Nations Conference on Trade and Development (UNCTAD), driving local impact on global issues.</p>
             </div>
+        
             <div class="card">
-                <h3>Content Researcher – Women in Tech Security</h3>
+                <h3>Content Researcher – Women in Tech Security [2024-present]</h3>
                 <p>Researched cybersecurity topics to spread awareness about online safety, focusing on issues like DDoS, ransomware, and MAC spoofing.</p>
             </div>
+        
             <div class="card">
-                <h3>Cybersecurity & Data Analyst Intern – Aegin Prima Solusi</h3>
+                <h3>Cybersecurity & Data Analyst Intern – Aegin Prima Solusi [2024]</h3>
                 <p>Gained hands-on experience with network components and configurations, developed skills in Splunk and data analytics, and created dashboards for IT operations monitoring.</p>
             </div>
+
+            <div class="card">
+                <h3>ACS Jakarta Coding Club Co-founder [2023-present]</h3>
+                <p>Founded a school coding club, fostering a passion for technology and programming. Oversaw the club's management. Facilitated coding sessions for club members to learn coding languages and tools (e.g., Python, Java, HTML/CSS).</p>
+            </div>
+
+        </section>
         </section>
 
         <!-- Projects Section -->
         <section id="projects">
             <h2>Projects</h2>
-    
-            <div class="project">
+            <div class="card">
                 <h3>Comparative Analysis of Novelty Detection Algorithms</h3>
                 <p>Published a research paper on machine learning approaches to network intrusion detection systems at ICAMIMIA, Surabaya, Indonesia (2023).</p>
-                <img src="project1.png" alt="Paper Project Image" class="project-image">
+                <img src="icamimiapic.jpg" alt="Paper Project Image" class="project-image">
+                <a href="https://ieeexplore.ieee.org/document/10427625"> Paper link</a>
             </div>
             
-            <div class="project">
-                <h3>NASA Space Apps – "Titan 3023"</h3>
+            <div class="card">
+                <h3>NASA Space Apps – "Titan City 3023"</h3>
                 <p>Developed a colony simulation game on Titan, Saturn's moon, using Godot and GDScript as part of NASA’s Space Apps challenge.</p>
-                <img src="project2.png" alt="Titan 3023 Project Image" class="project-image">
+                <img src="titancity.png" alt="Titan City 3023 Project Image" class="project-image">
+                <a href="https://zeralight.itch.io/titan-city"> itch.io link</a>
             </div>
             
-            <div class="project">
-                <h3>Search and Rescue Drone</h3>
+            <div class="card">
+                <h3>Codeavour 5.0 - Search and Rescue Drone</h3>
                 <p>Programmed an AI-based drone for search and rescue, which won 2nd place in Codeavour 5.0 Indonesia and qualified for the global round in Dubai.</p>
                 <img src="project3.png" alt="Search and Rescue Drone Image" class="project-image">
             </div>
             
-            <div class="project">
+            <div class="card">
                 <h3>Karir Kita Platform – Backend Developer</h3>
                 <p>Built a mock interview platform using WebRTC and JavaScript, facilitating connections between job seekers and professionals.</p>
-                <img src="project4.png" alt="Karir Kita Project Image" class="project-image">
+                <img src="karirkita.png" alt="Karir Kita Project Image" class="project-image">
+                <a href="https://github.com/MaxHalim/KarKi_GH_2023">GitHub link</a>
             </div>
         </section>
 
         <!-- Contact Section -->
         <section id="contact">
             <h2>Contact Details</h2>
-            <p>Email: <a href="mailto:maxmilian.halim@gmail.com">maxmilian.halim@gmail.com</a></p>
-            <p>Phone Number: <a href="https://www.linkedin.com/in/maxmilian-halim/" target="_blank">+62-811-2232-999</a></p>
+            <div class="card">
+                <p>Email: <a href="mailto:maxmilian.halim@gmail.com">maxmilian.halim@gmail.com</a></p>
+                <p>Phone Number: +62-811-2232-999</a></p>
+            </div>
         </section>
     </main>
 
     <!-- Footer -->
-    <footer>
-        <p>&copy; 2024 Maxmilian Halim. All rights reserved.</p>
-    </footer>
-
     <script src="script.js"></script>
+
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        const header = document.querySelector('header');
+        const fadeInElements = document.querySelectorAll('.section');
+    
+        function handleScroll() {
+            // Shrink header on scroll
+            if (window.scrollY > 50) {
+                header.classList.add('shrink');
+            } else {
+                header.classList.remove('shrink');
+            }
+    
+            // Fade-in effect for sections
+            fadeInElements.forEach(el => {
+                const rect = el.getBoundingClientRect();
+                const isVisible = rect.top <= (window.innerHeight - 100);
+                if (isVisible) {
+                    el.classList.add('fade-in');
+                }
+            });
+        }
+    
+        // Initial check and event listener for scroll
+        handleScroll();
+        window.addEventListener('scroll', handleScroll);
+    });
+</script>
+        
 </body>
 </html>

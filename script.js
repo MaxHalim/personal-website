@@ -1,22 +1,27 @@
-document.querySelectorAll('nav a').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-        
-        document.querySelector(this.getAttribute('href')).scrollIntoView({
-            behavior: 'smooth'
+document.addEventListener("DOMContentLoaded", function() {
+    const header = document.querySelector('header');
+    const fadeInElements = document.querySelectorAll('.section');
+
+    function handleScroll() {
+        if (window.scrollY > 50) {
+            header.classList.add('shrink');
+        } else {
+            header.classList.remove('shrink');
+        }
+
+        fadeInElements.forEach(el => {
+            const rect = el.getBoundingClientRect();
+            const isVisible = rect.top <= (window.innerHeight - 100);
+            if (isVisible) {
+                el.classList.add('fade-in');
+            }
         });
-    });
+    }
+
+    handleScroll();
+    window.addEventListener('scroll', handleScroll);
 });
 
-document.querySelectorAll('nav a').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-        
-        document.querySelector(this.getAttribute('href')).scrollIntoView({
-            behavior: 'smooth'
-        });
-    });
-});
 
 // Three.js code
 // const scene = new THREE.Scene();
